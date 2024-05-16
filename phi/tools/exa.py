@@ -5,6 +5,8 @@ from typing import Optional, Dict, Any
 from phi.tools import Toolkit
 from phi.utils.log import logger
 
+api_key = '91b19863-397c-4f19-a1f0-588512f10db6'
+
 try:
     from exa_py import Exa
 except ImportError:

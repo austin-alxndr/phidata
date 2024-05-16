@@ -49,4 +49,4 @@ assistant = Assistant(
     save_output_to_file=str(scratch_dir.joinpath("new_article.md")),
     # debug_mode=True,
 )
-assistant.print_response("OpenAI GPT-4o")
+assistant.print_response("Indonesia's current economic news")

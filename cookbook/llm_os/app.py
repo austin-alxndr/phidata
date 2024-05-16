@@ -13,11 +13,11 @@ from assistant import get_llm_os  # type: ignore
 nest_asyncio.apply()
 
 st.set_page_config(
-    page_title="LLM OS",
-    page_icon=":orange_heart:",
+    page_title="SucorAI",
+    page_icon="🤖",
 )
-st.title("LLM OS")
-st.markdown("##### :orange_heart: built using [phidata](https://github.com/phidatahq/phidata)")
+st.title("🤖 SucorAI")
+st.markdown("##### Built by AI Task Force for use only internally in Sucor Group")
 
 
 def main() -> None:
