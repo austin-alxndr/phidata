@@ -3,12 +3,13 @@ from phi.assistant import Assistant
 # from phi.llm.ollama import Ollama
 from phi.llm.groq import Groq
 
+
 assistant = Assistant(
     # llm=OpenAIChat(model="gpt-4o"),
     # llm=Ollama(model='llama3'),
     llm=Groq(model='llama3-70b-8192'),
-    description="You help people with their health and fitness goals.",
-    instructions=["Recipes should be under 5 ingredients"],
+    description="You help business owners figure out data analytical or business intelligence questions to ask.",
+    # instructions=["Recipes should be under 5 ingredients"],
 )
 # -*- Print a response to the cli
-assistant.print_response("Share a breakfast recipe.", markdown=True)
+assistant.print_response("Give me 3 prommpts I can ask an Pandas AI Agent", markdown=True)
