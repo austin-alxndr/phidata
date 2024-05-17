@@ -1,11 +1,14 @@
 import json
 from os import getenv
+import os
+from dotenv import load_dotenv
 from typing import Optional, Dict, Any
 
 from phi.tools import Toolkit
 from phi.utils.log import logger
 
-api_key = '91b19863-397c-4f19-a1f0-588512f10db6'
+load_dotenv()
+api_key = os.getenv("EXA_API_KEY")
 
 try:
     from exa_py import Exa
