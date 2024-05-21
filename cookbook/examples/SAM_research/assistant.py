@@ -1,3 +1,6 @@
+import os
+import streamlit as st
+
 from typing import Optional, List, Dict, Any
 from textwrap import dedent
 from dotenv import load_dotenv
@@ -14,6 +17,10 @@ from phi.tools.exa import ExaTools
 # scratch_dir = cwd.joinpath("scratch")
 # if not scratch_dir.exists():
 #     scratch_dir.mkdir(exist_ok=True, parents=True)
+
+####### Enviroment Import for API Keys ######
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["EXA_API_KEY"] = st.secrets["EXA_API_KEY"]
 
 ################ Assistant ################
 
