@@ -6,9 +6,11 @@ from typing import Optional, Dict, Any
 
 from phi.tools import Toolkit
 from phi.utils.log import logger
+import streamlit as st
 
-load_dotenv()
-api_key = os.getenv("EXA_API_KEY")
+# load_dotenv()
+api_key = st.secrets["EXA_API_KEY"]
+os.environ["EXA_API_KEY"] = st.secrets["EXA_API_KEY"]
 
 try:
     from exa_py import Exa
