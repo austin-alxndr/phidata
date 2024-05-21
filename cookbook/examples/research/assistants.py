@@ -106,6 +106,7 @@ research_editor = Assistant(
         "Focus on providing a high-level overview of the topic and the key findings from the articles.",
         "Do not copy the content from the articles, but use the information to generate a high-quality report.",
         "Do not include any personal opinions or biases in the report.",
+        "Include a references section for links to the articles used in the report.",
     ],
     markdown=True,
     # debug_mode=True,
