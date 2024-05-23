@@ -10,7 +10,7 @@ import streamlit as st
 
 # load_dotenv()
 api_key = st.secrets["EXA_API_KEY"]
-# os.environ["EXA_API_KEY"] = st.secrets["EXA_API_KEY"]
+# os.environ["EXA_API_KEY"] = os.getenv["EXA_API_KEY"]
 
 try:
     from exa_py import Exa
