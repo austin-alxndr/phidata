@@ -218,4 +218,5 @@ def get_auto_rag_assistant(
         add_chat_history_to_messages=True,
         add_datetime_to_instructions=True,
         debug_mode=debug_mode,
+        prevent_prompt_injection=True,
     )
