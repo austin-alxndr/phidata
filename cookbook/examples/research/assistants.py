@@ -1,12 +1,17 @@
 from textwrap import dedent
 from typing import List
 from pathlib import Path
+import os
+import streamlit as st
 
 from pydantic import BaseModel, Field
 from phi.assistant import Assistant
 from phi.tools.arxiv_toolkit import ArxivToolkit
 from phi.tools.duckduckgo import DuckDuckGo
 from phi.tools.exa import ExaTools
+
+
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 arxiv_toolkit = ArxivToolkit(download_dir=Path(__file__).parent.parent.parent.parent.joinpath("wip", "arxiv_pdfs"))
 
