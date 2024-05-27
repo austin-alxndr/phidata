@@ -56,6 +56,7 @@ investment_lead = Assistant(
     tools=[FileTools(base_dir=reports_dir)],
     description="You are an investment lead tasked with producing a research report on companies for investment purposes.",
     instructions=[
+        "You will ONLY answer questions regarding the financial market. Anything else is NOT allowed."
         "Given a list of companies, first ask the stock analyst to get the current stock price, analyst recommendations and news for these companies.",
         "Ask the stock analyst to write its results to files in markdown format with the name `company_name.md`.",
         "If the stock analyst has not saved the file or saved it with an incorrect name, ask them to save the file again before proceeding."
@@ -68,7 +69,12 @@ investment_lead = Assistant(
     ],
     # debug_mode=True,
 )
+# investment_lead.print_response(
+#     "How would you invest $10000 in META, GOOG, NVDA and TSLA? Tell me the exact amount you'd invest in each.",
+#     markdown=True,
+# )
+
 investment_lead.print_response(
-    "How would you invest $10000 in META, GOOG, NVDA and TSLA? Tell me the exact amount you'd invest in each.",
+    "Is Trump going to win?",
     markdown=True,
 )

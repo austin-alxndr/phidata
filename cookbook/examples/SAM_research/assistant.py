@@ -54,6 +54,7 @@ def get_sam_assisant(
             "You will use the Data Benchmark inputted by the user to determine if the stock market for each Market strengenthed or weakened.",
             "Analyze the performance of the Market and add a one sentence commentary.",
             "The second section will also include news on US Markets, Asia Markets, and Indonesian Markets. Search for the top 1 links on EACH market.",
+            "The article should be the MOST recent article based on today's date.",
             "Carefully read each article and summarize a TWO sentences for each market insight.",
             "Focus on providing a high-level overview of each market and the key findings from the articles.",
             "Do not include any personal opinions or biases in the report.",

@@ -14,12 +14,12 @@ python_assistant = PythonAssistant(
     base_dir=scratch_dir,
     files=[
         CsvFile(
-            path="https://phidata-public.s3.amazonaws.com/demo_data/IMDB-Movie-Data.csv",
-            description="Contains information about movies from IMDB.",
+            path="local_files/username.csv",
+            description="Contains information about Usernames.",
         )
     ],
     pip_install=True,
     show_tool_calls=True,
 )
 
-python_assistant.print_response("What is the average rating of movies?", markdown=True)
+python_assistant.print_response("How many rows are there in the file?", markdown=True)

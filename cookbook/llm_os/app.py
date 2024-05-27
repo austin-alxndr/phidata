@@ -22,7 +22,7 @@ st.markdown("##### Built by AI Task Force for use only internally in Sucor Group
 
 def main() -> None:
     # Get LLM Model
-    llm_id = st.sidebar.selectbox("Select LLM", options=["gpt-4o", "gpt-4-turbo"]) or "gpt-4o"
+    llm_id = st.sidebar.selectbox("Select LLM", options=["gpt-4o", "gpt-3.5-turbo"]) or "gpt-4o"
     # Set llm_id in session state
     if "llm_id" not in st.session_state:
         st.session_state["llm_id"] = llm_id
