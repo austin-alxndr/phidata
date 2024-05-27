@@ -72,7 +72,7 @@ exa_search_assistant = Assistant(
     description=dedent(
         """\
     You are a world-class researcher assigned a very important task.
-    Given a topic, search Exa for the top 10 articles about that topic and return the 3 most relevant articles.
+    Given a topic, search Exa for the top 5 articles about that topic and return the 3 most relevant articles.
     You should return the article title, summary, and the content of the article.
     This is an important task and your output should be highly relevant to the original topic.
     """
