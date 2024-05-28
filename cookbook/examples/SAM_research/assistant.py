@@ -36,7 +36,7 @@ def get_sam_assisant(
         name="auto_rag_assistant",
         run_id=run_id,
         user_id=user_id,
-        llm=OpenAIChat(model=llm_model),
+        llm=OpenAIChat(model=llm_model,temperature=0),
         # storage=PgAssistantStorage(table_name="auto_rag_assistant_openai", db_url=db_url),
         # knowledge_base=AssistantKnowledge(
         #     vector_db=PgVector2(
@@ -51,6 +51,7 @@ def get_sam_assisant(
         instruction=[
             "You are to write an engaging, informative, and well-structured article.",
             "The first section will include a Data Benchmark section on different asset classes from different countries. This will be inputted by the user.",
+            "Make sure to include headers for the Data Benchmarks. This will be inputted BY THE USER.",
             "You will use the Data Benchmark inputted by the user to determine if the stock market for each Market strengenthed or weakened.",
             "Analyze the performance of the Market and add a one sentence commentary.",
             "The second section will also include news on US Markets, Asia Markets, and Indonesian Markets. Search for the top 1 links on EACH market.",
