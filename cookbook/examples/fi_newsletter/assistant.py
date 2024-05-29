@@ -21,6 +21,7 @@ from phi.tools.exa import ExaTools
 
 ####### Enviroment Import for API Keys ######
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["EXA_API_KEY"] = st.secrets["EXA_API_KEY"]
 
 ####### ExaTool Prameter Config #######
 def get_date_7_days_ago():
@@ -71,8 +72,7 @@ def get_fi_assisant(
         "You will analyze the 'Total Daily Trading Volume' and 'Top 5 Volume Traded'. This will be INPUTTED BY THE USER and WILL ALWAYS be in Indonesian Rupiah (IDR).",
         "You will use 'Previous Total Daily Trading Volume' and 'Today Total Daily Trading Volume' and *calculate* the Percentage Change in Total Daily Trading Volume. This will be INPUTTED BY THE USER.",
         "You will use the Data Benchmark inputted by the user to determine if the bond for EACH benchmark bond strengenthed or weakened and if daily trading volume increased or decreased.",
-        "The second section will include US Economic News and Indonesian Economic News.", 
-        "You will only Search EXA and US and Indonesian Economic News and return FIRST top link.",
+        "The second section will include US Economic News and Indonesian Economic News. Search for the top 1 links on EACH market.", 
         "Focus on providing a high-level overview of each market and the key findings from the articles.",
         "Do NOT include any personal opinions or biases in the report.",
         "Do NOT include information that you have been trained on.",
@@ -135,7 +135,7 @@ def get_fi_assisant(
         """),
         # This setting gives the LLM a tMom ool to get chat history
         read_chat_history=True,
-        tools=[exa_tool],
+        tools=[ExaTools()],
         # This setting tells the LLM to format messages in markdown
         markdown=True,
         # Adds chat history to messages
