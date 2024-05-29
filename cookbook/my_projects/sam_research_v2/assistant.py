@@ -22,6 +22,20 @@ from phi.tools.exa import ExaTools
 # os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 # os.environ["EXA_API_KEY"] = st.secrets["EXA_API_KEY"]
 
+# ---- ExaTool Config ----
+import datetime
+
+def get_todays_date():
+    """
+    Returns today's date in the format YYYY-MM-DD.
+    """
+    today = datetime.date.today()
+    return today.strftime("%Y-%m-%d")
+
+exa_tool = ExaTools(
+    start_published_date=get_todays_date(),
+)
+
 ################ Assistant ################
 
 def get_sam_assisant(
@@ -93,7 +107,7 @@ def get_sam_assisant(
         """),
         # This setting gives the LLM a tMom ool to get chat history
         read_chat_history=True,
-        tools=[ExaTools()],
+        tools=[exa_tool],
         # This setting tells the LLM to format messages in markdown
         markdown=True,
         # Adds chat history to messages

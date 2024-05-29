@@ -1,9 +1,23 @@
+import datetime
 from pathlib import Path
 from textwrap import dedent
+
 
 from phi.assistant import Assistant
 from phi.llm.openai import OpenAIChat
 from phi.tools.exa import ExaTools
+
+def get_todays_date():
+    """
+    Returns today's date in the format YYYY-MM-DD.
+    """
+    today = datetime.date.today()
+    return today.strftime("%Y-%m-%d")
+
+exa_tool = ExaTools(
+    start_published_date=get_todays_date(),
+    include_domains=["www.cnbc.com", "www.reuters.com", "www.kontan.co.id"],
+)
 
 cwd = Path(__file__).parent.resolve()
 scratch_dir = cwd.joinpath("scratch")
@@ -12,7 +26,7 @@ if not scratch_dir.exists():
 
 assistant = Assistant(
     llm=OpenAIChat(model="gpt-4o"),
-    tools=[ExaTools()],
+    tools=[exa_tool],
     description="You are a senior NYT researcher writing an article on a topic.",
     instructions=[
         "For the provided topic, search for the top 10 links.",
@@ -49,4 +63,4 @@ assistant = Assistant(
     save_output_to_file=str(scratch_dir.joinpath("new_article.md")),
     # debug_mode=True,
 )
-assistant.print_response("Indonesia's current economic news")
+assistant.print_response("Current economic news")
