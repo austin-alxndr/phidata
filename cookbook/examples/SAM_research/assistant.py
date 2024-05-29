@@ -101,7 +101,7 @@ def get_sam_assisant(
         - [Title](url)
         <article_format>\
         """),
-        # This setting gives the LLM a tMom ool to get chat history
+        # This setting gives the LLM a tool to get chat history
         read_chat_history=True,
         tools=[exa_tool],
         # This setting tells the LLM to format messages in markdown

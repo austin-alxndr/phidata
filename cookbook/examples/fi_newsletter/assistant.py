@@ -5,6 +5,7 @@ from typing import Optional, List, Dict, Any
 from textwrap import dedent
 from dotenv import load_dotenv
 from pathlib import Path
+import datetime
 
 from phi.assistant import Assistant
 from phi.llm.openai import OpenAIChat
@@ -20,6 +21,18 @@ from phi.tools.exa import ExaTools
 
 ####### Enviroment Import for API Keys ######
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
+####### ExaTool Prameter Config #######
+def get_todays_date():
+    """
+    Returns today's date in the format YYYY-MM-DD.
+    """
+    today = datetime.date.today()
+    return today.strftime("%Y-%m-%d")
+
+exa_tool = ExaTools(
+    start_published_date=get_todays_date(),
+)
 
 ################ Assistant ################
 
