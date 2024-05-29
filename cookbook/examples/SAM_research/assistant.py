@@ -84,11 +84,11 @@ def get_sam_assisant(
         {input the benchmark data from the user here in a nice clean bullet point format}
 
         *US Market News*
-        {Bursa US menguat... }
+        {Bursa US mengalami penguatan/penurunan X.XX%... }
         {provide summary and key takeaways from article regarding US market news}
 
         *Asia Market News*
-        {Bursa Asia menguat... }
+        {Bursa Asia mengalami penguatan/penurunan X.XX%... }
         {provide summary and key takeaways from article regarding Asia market news}
 
         *Indonesian Market News*
