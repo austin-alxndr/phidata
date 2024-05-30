@@ -66,44 +66,40 @@ def get_sam_assisant(
             "The first section will include a Data Benchmark section on different asset classes from different countries. This will be INPUTTED BY THE USER.",
             "Make sure to include headers for the Data Benchmarks. This will be INPUTTED BY THE USER.",
             "You will use the Data Benchmark INPUTTED BY THE USER to determine if the stock market for each Market strengthened or weakened.",
-            "The second section will also include news on US Markets, Asia Markets, and Indonesian Markets. Search for the top 1 links on EACH market.",
             "Start each sub market section with stating if the stock market strengthened or weakened.",
-            "Focus on providing a high-level overview of each market and the key findings from the articles.",
             "Do not include any personal opinions or biases in the report.",
             "Include a references section for links to the articles used AT THE END of the report.",
             "IMPORTANT: You will output the news article in the Bahasa Indonesia language."
         ],
         expected_output=dedent(
-        """\
-        Artikel yang menarik, informatif, dan terstruktur dengan baik dalam format berikut:
-        <article_format>
-        ## *Sucor AM News Update*
-        ## *{today's date}*
+            """\
+            Artikel yang menarik, informatif, dan terstruktur dengan baik dalam format berikut:
 
-        *Data Benchmark*
-        {input the benchmark data from the user here in a nice clean bullet point format}
+            <article_format>
+            *Sucor AM News Update*
+            *{today's date}*
 
-        *US Market News*
-        {Bursa US mengalami penguatan/penurunan X.XX%... }
-        {provide summary and key takeaways from article regarding US market news}
+            *Data Benchmark*
+            {input the benchmark data from the user here in a nice clean bullet point format}
+            - *US Market*:
+                - S&P 500: xxxx (-x.xx%)
+                - Dow Jones: xxxx (-x.xx%)
+            
+            ...more indexes with headers here...
 
-        *Asia Market News*
-        {Bursa Asia mengalami penguatan/penurunan X.XX%... }
-        {provide summary and key takeaways from article regarding Asia market news}
+            *US Market News*
+            {Bursa US mengalami penguatan/penurunan X.XX%... }
 
-        *Indonesian Market News*
-        {Kemarin, JCI mengalami penurunan X.XX%... }
-        {provide summary and key takeaways from article regarding Indonesian market news}
-        
-        *References*
-        - [Title](url)
-        - [Title](url)
-        - [Title](url)
-        <article_format>\
+            *Asia Market News*
+            {Bursa Asia mengalami penguatan/penurunan X.XX%... }
+
+            *Indonesian Market News*
+            {Kemarin, JCI mengalami penurunan X.XX%... }
+
+            <article_format>\
         """),
         # This setting gives the LLM a tool to get chat history
         read_chat_history=True,
-        tools=[exa_tool],
         # This setting tells the LLM to format messages in markdown
         markdown=True,
         # Adds chat history to messages
