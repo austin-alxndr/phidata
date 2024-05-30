@@ -24,7 +24,7 @@ exa_tool = ExaTools(
 )
 
 assistant = Assistant(
-    llm=OpenAIChat(model="gpt-4o"),
+    llm=OpenAIChat(model="gpt-4o", temperature=0.2),
     tools=[exa_tool],
     description="You are a senior Asset Management researcher writing a news update article for clients.",
     instruction=[
@@ -48,6 +48,11 @@ assistant = Assistant(
 
             *Data Benchmark*
             {input the benchmark data from the user here in a nice clean bullet point format}
+            - *US Market*:
+                - S&P 500: xxxx (-x.xx%)
+                - Dow Jones: xxxx (-x.xx%)
+            
+            ...more indexes with headers here...
 
             *US Market News*
             {Bursa US mengalami penguatan/penurunan X.XX%... }
