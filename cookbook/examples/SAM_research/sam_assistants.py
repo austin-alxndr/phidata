@@ -1,5 +1,6 @@
 from pathlib import Path
 from textwrap import dedent
+import datetime
 
 from phi.assistant import Assistant
 from phi.llm.openai import OpenAIChat
@@ -10,49 +11,53 @@ scratch_dir = cwd.joinpath("scratch")
 if not scratch_dir.exists():
     scratch_dir.mkdir(exist_ok=True, parents=True)
 
+
+def get_todays_date():
+    """
+    Returns today's date in the format YYYY-MM-DD.
+    """
+    today = datetime.date.today()
+    return today.strftime("%Y-%m-%d")
+
+exa_tool = ExaTools(
+    start_published_date=get_todays_date(),
+)
+
 assistant = Assistant(
     llm=OpenAIChat(model="gpt-4o"),
-    tools=[ExaTools()],
+    tools=[exa_tool],
     description="You are a senior Asset Management researcher writing a news update article for clients.",
     instruction=[
-        "You are to write an engaging, informative, and well-structured article.",
-        "The first section will include a Data Benchmark section on different asset classes from different countries. This will be inputted by the user.",
-        "You will use the Data Benchmark inputted by the user to determine if the stock market for each Market strengenthed or weakened.",
-        "Analyze the performance of the Market and add a one sentence commentary.",
-        "The second section will also include news on US Markets, Asia Markets, and Indonesian Markets. Search for the top 1 links on EACH market.",
-        "Carefully read each article and summarize a TWO sentences for each market insight.",
-        "Focus on providing a high-level overview of each market and the key findings from the articles.",
-        "Do not include any personal opinions or biases in the report.",
-        "Include a references section for links to the articles used in the report.",
-        "IMPORTANT: You will output the news article in the Bahasa Indonesia language."
+            "You are to write an engaging, informative, and well-structured newsletter.",
+            "The first section will include a Data Benchmark section on different asset classes from different countries. This will be INPUTTED BY THE USER.",
+            "Make sure to include headers for the Data Benchmarks. This will be INPUTTED BY THE USER.",
+            "You will use the Data Benchmark INPUTTED BY THE USER to determine if the stock market for each Market strengthened or weakened.",
+            "Start each sub market section with stating if the stock market strengthened or weakened.",
+            "Do not include any personal opinions or biases in the report.",
+            "Include a references section for links to the articles used AT THE END of the report.",
+            "IMPORTANT: You will output the news article in the Bahasa Indonesia language."
         ],
     add_datetime_to_instructions=True,
     expected_output=dedent(
             """\
             Artikel yang menarik, informatif, dan terstruktur dengan baik dalam format berikut:
+
             <article_format>
-            ## *Sucor AM News Update*
-            ## *{today's date}*
+            *Sucor AM News Update*
+            *{today's date}*
 
             *Data Benchmark*
             {input the benchmark data from the user here in a nice clean bullet point format}
 
             *US Market News*
-            {Bursa US menguat... }
-            {provide summary and key takeaways from article regarding US market news}
+            {Bursa US mengalami penguatan/penurunan X.XX%... }
 
             *Asia Market News*
-            {Bursa Asia menguat... }
-            {provide summary and key takeaways from article regarding Asia market news}
+            {Bursa Asia mengalami penguatan/penurunan X.XX%... }
 
             *Indonesian Market News*
             {Kemarin, JCI mengalami penurunan X.XX%... }
-            {provide summary and key takeaways from article regarding Indonesian market news}
-            
-            *References*
-            - [Title](url)
-            - [Title](url)
-            - [Title](url)
+
             <article_format>\
         """),
     markdown=True,
@@ -61,46 +66,7 @@ assistant = Assistant(
 
 assistant.print_response(
     """
-    *UNITED STATES*
+Last Price Price Change 1 Day Percent PX_LAST CHG_PCT_1D UNITED STATES S&P 500 5,266.95 -0.74% UNITED STATES Dow Jones 38,441.54 -1.06% UNITED STATES Nasdaq 16,920.58 -0.58% UNITED STATES S&P 500 VIX 14.28 10.53% EUROPE Euro Stoxx 50 4,963.20 -1.33% EUROPE DAX 18,473.29 -1.10% EUROPE FTSE 100 8,183.07 -0.86% ASIA Nikkei 225 38,556.87 -0.77% ASIA Hang Seng 18,477.01 -1.83% ASIA Shanghai 3,111.02 0.05% INDONESIA IDX Composite 7,140.23 -1.56% INDONESIA IDX LQ45 886.18 -1.62% INDONESIA iShares MSCI Indonesia 19.96 -2.30% BONDS U.S. 10Y 4.61 1.36% BONDS Indonesia 10Y 6.94 0.13% COMMODITIES & OTHERS Crude Oil WTI 79.23 -0.75% COMMODITIES & OTHERS Gold 2,338.12 -0.98% COMMODITIES & OTHERS US Dollar Index 105.12 0.49% COMMODITIES & OTHERS USD/IDR 16,160.00 0.44%
 
-S&P 500      5303.27     +0.12%
-Dow Jones    40003.59    +0.34%
-Nasdaq       16685.97    -0.07%
-VIX Index    12.24       +2.09%
-
-
-*EUROPE*
-
-SX5E Index   5067.17     +0.06%
-DAX Index    18748.83    +0.24%
-UKX Index    8441.57     +0.25%
-
-
-*ASIA*
-
-NKY Index    39069.68    +0.73%
-HSI Index    19598.65    +0.23%
-SHCOMP Index 3171.45     +0.54%
-
-
-*INDONESIA*
-
-JCI Index    7267.78     -0.68%
-LQ45 Index   910.51      -0.98%
-EIDO US Eq   21.3        +1.33%
-
-
-*BONDS*
-
-USGG10YR     4.4218
-GIDN10YR     6.935
-
-
-*COMMODITIES & OTHERS*
-
-CL1 Comdty   80.23
-XAU Curncy   2441.57     +1.09%
-DXY Curncy   104.465     +0.02%
-USDIDR Curncy15975      -0.13%
     """
 )
