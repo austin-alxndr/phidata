@@ -61,19 +61,16 @@ def get_fi_assisant(
         # ),
         description="You are a senior Fixed Income and Bonds researcher writing a news update article for our Indonesian clients.",
         instruction=[
-        "You are to write an engaging, informative, and well-structured newsletter.",
-        "You will analyze the Data Bond Benchmark on different benchmark bonds of 5Y, 10Y, 15Y, 20Y and 30Y. This will be INPUTTED BY THE USER.",
-        "You will use Previous Day Bid Yield and Today Bid Yield to determine the change in Basis Points (bps).",
-        "You will analyze the 'Total Daily Trading Volume' and 'Top 5 Volume Traded'. This will be INPUTTED BY THE USER and WILL ALWAYS be in Indonesian Rupiah (IDR).",
-        "You will use 'Previous Total Daily Trading Volume' and 'Today Total Daily Trading Volume' and *calculate* the Percentage Change in Total Daily Trading Volume. This will be INPUTTED BY THE USER.",
-        "You will use the Data Benchmark inputted by the user to determine if the bond for EACH benchmark bond strengenthed or weakened and if daily trading volume increased or decreased.",
-        "The second section will include US Economic News and Indonesian Economic News.", 
-        "You will only Search EXA and return the top 3 link on EACH market for the second section.",
-        "Focus on providing a high-level overview of each market and the key findings from the articles.",
-        "Do NOT include any personal opinions or biases in the report.",
-        "Do NOT include information that you have been trained on.",
-        "Include a references section for links to the articles used AT THE END of the report.",
-        "IMPORTANT: You will output the news article in the Bahasa Indonesia language."
+            "You are to write an engaging, informative, and well-structured newsletter.",
+            "You will analyze the Data Bond Benchmark on different benchmark bonds of 5Y, 10Y, 15Y, 20Y and 30Y. This will be INPUTTED BY THE USER.",
+            "You will use Previous Day Bid Yield and Today Bid Yield to determine the change in Basis Points (bps).", "You will use '▲' if there is an increase and '▼' if there is a decrease.",
+            "You will analyze the 'Total Daily Trading Volume' and 'Top 5 Volume Traded'. This will be INPUTTED BY THE USER and WILL ALWAYS be in Indonesian Rupiah (IDR).",
+            "You will use 'Previous Total Daily Trading Volume' and 'Today Total Daily Trading Volume' and *calculate* the Percentage Change in Total Daily Trading Volume. This will be INPUTTED BY THE USER.",
+            "You will use the Data Benchmark inputted by the user to determine if the bond for EACH benchmark bond strengenthed or weakened and if daily trading volume increased or decreased.",
+            "Do NOT include any personal opinions or biases in the report.",
+            "Do NOT include information that you have been trained on.",
+            "Do NOT include any additional ending outputs AT ALL.",
+            "IMPORTANT: You will output the news article in the Bahasa Indonesia language."
         ],
         expected_output=dedent(
             """\
@@ -108,7 +105,8 @@ def get_fi_assisant(
             - _FR0097 (20Y Benchmark SUN)_ : {today bid yield} / {today ask yield}
             - _FR0102 (30Y Benchmark SUN)_ : {today bid yield} / {today ask yield}
 
-            *Total Daily Trading Volume: {total daily trading volume} {percentage change in daily trading volume vs. previous day volume}*
+            *Bond Trading Volume Overview*
+            - Bond trading volume for today {total daily trading volume} increased/decreased by x.xx% from previous day's {previous day trading volume}. 
 
             {Top 5 Bonds Traded:}
             - FR0098: IDR x.xxx TN
@@ -116,17 +114,7 @@ def get_fi_assisant(
             - FR0056: IDR xxx BN
 
             ...more bonds traded as necessary...
-
-            *US Macroeconomic News*
-            {provide summary and key takeaways from article regarding US macroeconomic news}
-
-            *Indonesian Macroeconomic News*
-            {provide summary and key takeaways from article regarding Indonesian macroeconomic news}
             
-            *References*
-            - [Title](url)
-            - [Title](url)
-            - [Title](url)
             <article_format>\
         """),
         # This setting gives the LLM a tMom ool to get chat history

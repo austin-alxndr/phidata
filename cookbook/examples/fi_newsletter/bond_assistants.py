@@ -63,11 +63,11 @@ assistant = Assistant(
 
             *Data Analysis - Obligasi*
             {input each bond benchmark data from the user here in sentences}
-            - Yield FR0101 (5Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0100 (10Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0098 (15Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0097 (20Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0102 (30Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
+            - Yield FR0101 (5Y Benchmark SUN) ▼ {change in Basis Points} bps menajdi {today bid yield}.
+            - Yield FR0100 (10Y Benchmark SUN) ▲ {change in Basis Points} bps menajdi {today bid yield}.
+            - Yield FR0098 (15Y Benchmark SUN) ▼ {change in Basis Points} bps menajdi {today bid yield}.
+            - Yield FR0097 (20Y Benchmark SUN) ▲ {change in Basis Points} bps menajdi {today bid yield}.
+            - Yield FR0102 (30Y Benchmark SUN) ▼ {change in Basis Points} bps menajdi {today bid yield}.
     
             *Data Benchmark - Obligasi*
             {input the benchmark data from the user here in a nice clean bullet point format}
