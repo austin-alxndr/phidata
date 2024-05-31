@@ -111,7 +111,7 @@ def get_fi_assisant(
             - _FR0102 (30Y Benchmark SUN)_ : {today bid yield} / {today ask yield}
 
             *Bond Trading Volume Overview*
-            - Bond trading volume for today {total daily trading volume} increased/decreased by x.xx% from previous day's {previous day trading volume}. 
+            - Volume bond trading hari ini {total daily trading volume} mengalami kenaikan/penurunan by x.xx% dari hari sebelumnya {previous day trading volume}. 
 
             {Top 5 Bonds Traded:}
             - FR0098: IDR x.xxx TN
