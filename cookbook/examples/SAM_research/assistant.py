@@ -77,7 +77,7 @@ def get_sam_assisant(
 
             <article_format>
             *Sucor AM News Update*
-            *{today's date}*
+            *{today's date in written format}*
 
             *Data Benchmark*
             {input the benchmark data from the user here in a nice clean bullet point format}
