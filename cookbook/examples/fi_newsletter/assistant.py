@@ -89,11 +89,11 @@ def get_fi_assisant(
 
             *Data Analysis - Obligasi*
             {input each bond benchmark data from the user here in sentences}
-            - Yield FR0101 (5Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0100 (10Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0098 (15Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0097 (20Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
-            - Yield FR0102 (30Y Benchmark SUN) jatuh {change in Basis Points} bps menajdi {today bid yield}.
+            - Yield FR0101 (5Y Benchmark SUN) turun {change in Basis Points} bps menjadi {today bid yield}.
+            - Yield FR0100 (10Y Benchmark SUN) turun {change in Basis Points} bps menjadi {today bid yield}.
+            - Yield FR0098 (15Y Benchmark SUN) turun {change in Basis Points} bps menjadi {today bid yield}.
+            - Yield FR0097 (20Y Benchmark SUN) turun {change in Basis Points} bps menjadi {today bid yield}.
+            - Yield FR0102 (30Y Benchmark SUN) turun {change in Basis Points} bps menjadi {today bid yield}.
     
             *Data Benchmark - Obligasi*
             {input the benchmark data from the user here in a nice clean bullet point format}
@@ -111,7 +111,7 @@ def get_fi_assisant(
             - _FR0102 (30Y Benchmark SUN)_ : {today bid yield} / {today ask yield}
 
             *Bond Trading Volume Overview*
-            - Volume bond trading hari ini {total daily trading volume} mengalami kenaikan/penurunan by x.xx% dari hari sebelumnya {previous day trading volume}. 
+            - Volume trading obligasi hari ini {total daily trading volume} mengalami kenaikan/penurunan by x.xx% dari hari sebelumnya {previous day trading volume}. 
 
             {Top 5 Bonds Traded:}
             - FR0098: IDR x.xxx TN
